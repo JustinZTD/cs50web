@@ -1,0 +1,148 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+input[type="text"] {
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  text-align: center;
+}
+
+input[type="submit"] {
+  display: block;
+  margin: 20px auto;
+}
+
+.link-container {
+  text-align: right;
+  padding: 20px;
+}
+
+.link-container a {
+  color: #000;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.link-container a:hover {
+  text-decoration: underline;
+}
+
+.search-container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.logo {
+  width: 272px;
+  height: 92px;
+  margin-bottom: 20px;
+}
+
+.image-label {
+  color: #4285f4;
+  font-size: 16px;
+  position: relative;
+  top: -20px;
+  left: 100px;
+}
+
+.search-input {
+  width: 500px;
+  height: 34px;
+  padding: 5px 8px;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-input:hover,
+.search-input:focus {
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  border-color: rgba(223, 225, 229, 0);
+}
+
+.button-container {
+  margin-top: 30px;
+}
+
+.search-button {
+  background-color: #f8f9fa;
+  border: 1px solid #f8f9fa;
+  border-radius: 4px;
+  color: #3c4043;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  margin: 11px 4px;
+  padding: 0 16px;
+  line-height: 27px;
+  height: 36px;
+  min-width: 54px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.search-button:hover {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+  border: 1px solid #dadce0;
+  color: #202124;
+}
+
+.lucky-button {
+  margin-left: 10px;
+}
+
+.advanced-search-container {
+  margin: 40px;
+}
+
+.advanced-search-container h1 {
+  color: #d93025;
+  font-size: 20px;
+  margin: 25px 35px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  width: 200px;
+  font-size: 13px;
+}
+
+.advanced-input {
+  width: 385px;
+  height: 25px;
+  padding: 1px 8px;
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #c0c0c0;
+  font-size: 13px;
+}
+
+.advanced-search-button {
+  background-color: #4d90fe;
+  border: 1px solid #3079ed;
+  color: #fff;
+  font-weight: bold;
+  font-size: 11px;
+  text-align: center;
+  padding: 0 12px;
+  height: 30px;
+  min-width: 120px;
+  margin-left: 200px;
+  cursor: pointer;
+}
+
+.advanced-search-button:hover {
+  background-color: #357ae8;
+  border: 1px solid #2f5bb7;
+}
