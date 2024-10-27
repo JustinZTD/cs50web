@@ -3,5 +3,12 @@
 {% block body %}
     <h2>Active Listings</h2>
 
-    TODO
+    {% for listing in active_listings %}
+        <div>
+            <a href="{% url 'listing' listing.id %}">{{ listing.title }}</a>
+            <span class="badge badge-secondary">{{ listing.description }}</span>
+            <span class="badge badge-secondary">Current Bid: ${{ listing.get_highest_bid.amount }}</span>
+            <img src="{{ listing.image }}" alt="image" height="50" width="50"/>
+        </div>
+    {% endfor %}
 {% endblock %}

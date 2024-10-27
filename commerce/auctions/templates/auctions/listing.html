@@ -1,0 +1,69 @@
+{% extends "auctions/layout.html" %} 
+{% block body %} 
+{% if messages %} 
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}">{{ message }}</div>
+{% endfor %} 
+{% endif %}
+
+<h2>{{ listing.title }}</h2>
+<img
+  src="{{ listing.image }}"
+  alt="{{ listing.title }}"
+  style="max-width: 300px"
+/>
+<p>{{ listing.description }}</p>
+<p>Current Price: ${{ current_price }}</p>
+<p>Category: {{ listing.category }}</p>
+
+{% if user.is_authenticated %} {% if in_watchlist %}
+<form action="{% url 'remove_from_watchlist' listing.id %}" method="post">
+  {% csrf_token %}
+  <button type="submit">Remove from Watchlist</button>
+</form>
+{% else %}
+<form action="{% url 'add_to_watchlist' listing.id %}" method="post">
+  {% csrf_token %}
+  <button type="submit">Add to Watchlist</button>
+</form>
+{% endif %} 
+{% if listing.active %}
+<h3>Place a Bid</h3>
+<form action="{% url 'place_bid' listing.id %}" method="post">
+  {% csrf_token %}
+  <input
+    type="number"
+    name="bid"
+    step="0.01"
+    min="{{ current_price|add:'0.01' }}"
+    required
+  />
+  <button type="submit">Place Bid</button>
+</form>
+{% endif %} 
+{% if is_owner and listing.active %}
+<form action="{% url 'close_auction' listing.id %}" method="post">
+  {% csrf_token %}
+  <button type="submit">Close Auction</button>
+</form>
+{% endif %} 
+{% if is_winner %}
+<h3>Congratulations! You won this auction!</h3>
+{% endif %}
+<h3>Add a Comment</h3>
+<form action="{% url 'add_comment' listing.id %}" method="post">
+  {% csrf_token %}
+  <textarea name="comment" required></textarea>
+  <button type="submit">Add Comment</button>
+</form>
+{% endif %}
+
+<h3>Comments</h3>
+{% for comment in comments %}
+<p>{{ comment.commenter.username }}: {{ comment.text }}</p>
+{% endfor %}
+
+<h3>Bid History</h3>
+{% for bid in bids %}
+<p>{{ bid.bidder.username }}: ${{ bid.amount }}</p>
+{% endfor %} {% endblock %}
